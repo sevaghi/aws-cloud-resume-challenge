@@ -72,7 +72,7 @@ resource "aws_s3_object" "my_objects" {
   content_type = each.value.content_type
 }
 
-#--------App build and deploy to S3--------#
+#--------CSS and JS to S3--------#
 
 resource "null_resource" "upload_files" {
   provisioner "local-exec" {
@@ -146,7 +146,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
     target_origin_id = "S3-${var.bucket_name}"
 
-    viewer_protocol_policy = "allow-all"
+    viewer_protocol_policy = "https-only"
   }
 
   price_class = "PriceClass_All"
