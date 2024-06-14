@@ -146,7 +146,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
     target_origin_id = "S3-${var.bucket_name}"
 
-    viewer_protocol_policy = "https-only"
+    viewer_protocol_policy = "redirect-to-https"
   }
 
   price_class = "PriceClass_All"
