@@ -2,11 +2,11 @@
 
 variable "bucket_name" {
   description = "S3 bucket name for website"
-  default     = "tf-cloudresume-test-dsf1q32fs"
+  default     = "sevaghi-web-portfolio-terraform"
 }
 
 variable "domain_name" {
-  type = string
+  type    = string
   default = "sevaghiga.com"
 }
 
@@ -15,10 +15,12 @@ variable "acm_certificate_domain" {
   description = "ACM certificate domain name"
 }
 
+
 variable "cloudfront_aliases" {
+  description = "List of CloudFront aliases (CNAMEs)"
   default     = ["sevaghiga.com", "www.sevaghiga.com"]
-  description = "cnames that point to acm certificate"
 }
+
 
 variable "a_records" {
   type = map(object({
@@ -47,14 +49,14 @@ variable "objects" {
       path         = "website/index.html"
       content_type = "text/html"
     }
-    "style.css" = {
-      path         = "website/_astro/index.2uJtHFFC.css"
-      content_type = "text/css"
-    }
-    "script.js" = {
-      path         = "website/_astro/hoisted.ZJImjIEP.js"
-      content_type = "application/javascript"
-    }
+    #"style.css" = {
+    #  path         = "website/_astro/index.2uJtHFFC.css"
+    #  content_type = "text/css"
+    #}
+    #"script.js" = {
+    #  path         = "website/_astro/hoisted.ZJImjIEP.js"
+    #  content_type = "application/javascript"
+    #}
     "favicon.svg" = {
       path         = "website/favicon.svg"
       content_type = "image/x-icon"

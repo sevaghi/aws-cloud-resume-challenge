@@ -17,27 +17,20 @@ provider "aws" {
 }
 provider "aws" {
   region = "us-east-1"
-  alias = "use1"
+  alias  = "use1"
 }
 
 #--------S3 Bucket--------#
 resource "aws_s3_bucket" "s3_bucket" {
   bucket = var.bucket_name
 }
-resource "aws_s3_bucket_policy" "s3_bucket_policy" {
-  bucket = aws_s3_bucket.s3_bucket.id
-  policy = data.aws_iam_policy_document.s3_bucket_policy.json
-}
 
 data "aws_iam_policy_document" "s3_bucket_policy" {
   statement {
     sid = "Allow CloudFront to read from S3 bucket"
-    actions = [
-      "s3:GetObject",
-    ]
-    resources = [
-      "arn:aws:s3:::${var.bucket_name}/*",
-    ]
+    actions = ["s3:GetObject"]
+    resources = ["${aws_s3_bucket.s3_bucket.arn}/*"]
+    
     principals {
       type = "AWS"
       identifiers = [
@@ -46,6 +39,11 @@ data "aws_iam_policy_document" "s3_bucket_policy" {
     }
   }
   version = "2012-10-17"
+}
+
+resource "aws_s3_bucket_policy" "aws_s3_bucket_policy" {
+  bucket = aws_s3_bucket.s3_bucket.id
+  policy = data.aws_iam_policy_document.s3_bucket_policy.json
 }
 
 resource "aws_s3_bucket_website_configuration" "s3_bucket" {
@@ -57,11 +55,6 @@ resource "aws_s3_bucket_website_configuration" "s3_bucket" {
   error_document {
     key = "index.html"
   }
-}
-
-resource "aws_s3_bucket_acl" "s3_bucket" {
-  bucket = var.bucket_name
-  acl    = "public-read"
 }
 
 resource "aws_s3_bucket_versioning" "s3_bucket" {
@@ -79,6 +72,49 @@ resource "aws_s3_object" "my_objects" {
   content_type = each.value.content_type
 }
 
+#--------App build and deploy to S3--------#
+
+resource "null_resource" "upload_files" {
+  provisioner "local-exec" {
+    command = <<EOT
+      for file in $(find ./website/_astro -type f); do
+        aws s3 cp $file s3://${aws_s3_bucket.s3_bucket.id}/_astro/$(basename $file);
+      done
+    EOT
+  }
+  
+  depends_on = [aws_s3_bucket.s3_bucket]
+}
+
+
+
+#--------ACM Certificate & Route 53--------#
+
+data "aws_acm_certificate" "acm_cert" {
+  provider = aws.use1
+  domain = var.domain_name
+  statuses = ["ISSUED"]
+}
+
+data "aws_route53_zone" "zone" {
+  name = var.domain_name
+  private_zone = false
+}
+
+resource "aws_route53_record" "a" {
+  for_each = var.a_records
+
+  zone_id = data.aws_route53_zone.zone.zone_id
+  name    = each.value.name
+  type    = each.value.type
+
+  alias {
+    name                   = aws_cloudfront_distribution.s3_distribution.domain_name
+    zone_id                = aws_cloudfront_distribution.s3_distribution.hosted_zone_id
+    evaluate_target_health = false
+  }
+}
+
 #--------CloudFront--------#
 resource "aws_cloudfront_origin_access_identity" "origin_access_identity" {
   comment = "access-identity-${var.domain_name}.s3.amazonaws.com"
@@ -94,6 +130,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
       origin_access_identity = aws_cloudfront_origin_access_identity.origin_access_identity.cloudfront_access_identity_path
     }
   }
+
   enabled             = true
   is_ipv6_enabled     = true
   default_root_object = "index.html"
@@ -122,7 +159,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   }
 
   viewer_certificate {
-    acm_certificate_arn      = data.aws_acm_certificate.acm_certificate.arn
+    acm_certificate_arn      = data.aws_acm_certificate.acm_cert.arn
     ssl_support_method       = "sni-only"
     minimum_protocol_version = "TLSv1.2_2021"
   }
@@ -200,31 +237,4 @@ resource "aws_cloudfront_origin_request_policy" "policy" {
       items = []
     }
   }
-}
-
-#--------Route 53--------#
-data "aws_route53_zone" "my_zone" {
-  name         = var.domain_name
-  private_zone = false
-}
-
-resource "aws_route53_record" "a" {
-  for_each = var.a_records
-
-  zone_id = data.aws_route53_zone.my_zone.zone_id
-  name    = each.value.name
-  type    = each.value.type
-
-  alias {
-    name                   = aws_cloudfront_distribution.s3_distribution.domain_name
-    zone_id                = aws_cloudfront_distribution.s3_distribution.hosted_zone_id
-    evaluate_target_health = false
-  }
-}
-
-#--------ACM Certificate--------#
-data "aws_acm_certificate" "acm_certificate" {
-  provider = aws.use1
-  domain = var.acm_certificate_domain
-  statuses = ["ISSUED"]
 }
