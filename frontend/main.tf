@@ -27,10 +27,10 @@ resource "aws_s3_bucket" "s3_bucket" {
 
 data "aws_iam_policy_document" "s3_bucket_policy" {
   statement {
-    sid = "Allow CloudFront to read from S3 bucket"
-    actions = ["s3:GetObject"]
+    sid       = "Allow CloudFront to read from S3 bucket"
+    actions   = ["s3:GetObject"]
     resources = ["${aws_s3_bucket.s3_bucket.arn}/*"]
-    
+
     principals {
       type = "AWS"
       identifiers = [
@@ -82,7 +82,7 @@ resource "null_resource" "upload_files" {
       done
     EOT
   }
-  
+
   depends_on = [aws_s3_bucket.s3_bucket]
 }
 
@@ -92,12 +92,12 @@ resource "null_resource" "upload_files" {
 
 data "aws_acm_certificate" "acm_cert" {
   provider = aws.use1
-  domain = var.domain_name
+  domain   = var.domain_name
   statuses = ["ISSUED"]
 }
 
 data "aws_route53_zone" "zone" {
-  name = var.domain_name
+  name         = var.domain_name
   private_zone = false
 }
 
