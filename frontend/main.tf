@@ -65,28 +65,13 @@ resource "aws_s3_bucket_versioning" "s3_bucket" {
 }
 
 resource "aws_s3_object" "my_objects" {
-  for_each     = var.objects
+  for_each = var.objects
+
   bucket       = aws_s3_bucket.s3_bucket.id
-  key          = each.key
+  key          = each.key == "style.css" || each.key == "script.js" ? "_astro/${each.key}" : each.key
   source       = "${path.module}/${each.value.path}"
   content_type = each.value.content_type
 }
-
-#--------CSS and JS to S3--------#
-
-resource "null_resource" "upload_files" {
-  provisioner "local-exec" {
-    command = <<EOT
-      for file in $(find ./website/_astro -type f); do
-        aws s3 cp $file s3://${aws_s3_bucket.s3_bucket.id}/_astro/$(basename $file);
-      done
-    EOT
-  }
-
-  depends_on = [aws_s3_bucket.s3_bucket]
-}
-
-
 
 #--------ACM Certificate & Route 53--------#
 
@@ -153,8 +138,8 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   restrictions {
     geo_restriction {
-      restriction_type = "none"
-      locations        = []
+      restriction_type = "whitelist"
+      locations        = ["ES", "PT", "US", "CA", "DE", "FR"]
     }
   }
 

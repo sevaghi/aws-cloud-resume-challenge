@@ -2,7 +2,7 @@
 
 variable "bucket_name" {
   description = "S3 bucket name for website"
-  default     = "sevaghi-web-portfolio-terraform"
+  default     = "sevaghiga-web-portfolio-ct4q35wer"
 }
 
 variable "domain_name" {
@@ -49,14 +49,14 @@ variable "objects" {
       path         = "website/index.html"
       content_type = "text/html"
     }
-    #"style.css" = {
-    #  path         = "website/_astro/index.2uJtHFFC.css"
-    #  content_type = "text/css"
-    #}
-    #"script.js" = {
-    #  path         = "website/_astro/hoisted.ZJImjIEP.js"
-    #  content_type = "application/javascript"
-    #}
+    "style.css" = {
+      path         = "website/_astro/index.2uJtHFFC.css"
+      content_type = "text/css"
+    }
+    "script.js" = {
+      path         = "website/_astro/hoisted.ZJImjIEP.js"
+      content_type = "application/javascript"
+    }
     "favicon.svg" = {
       path         = "website/favicon.svg"
       content_type = "image/x-icon"
