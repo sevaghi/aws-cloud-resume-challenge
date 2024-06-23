@@ -49,12 +49,12 @@ variable "objects" {
       path         = "website/index.html"
       content_type = "text/html"
     }
-    "style.css" = {
+    "index.2uJtHFFC.css" = {
       path         = "website/_astro/index.2uJtHFFC.css"
       content_type = "text/css"
     }
-    "script.js" = {
-      path         = "website/_astro/hoisted.ZJImjIEP.js"
+    "hoisted.wPmeTjZf.js" = {
+      path         = "website/_astro/hoisted.wPmeTjZf.js"
       content_type = "application/javascript"
     }
     "favicon.svg" = {
