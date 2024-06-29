@@ -1,0 +1,77 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import About from "@/components/sections/About.astro"
+import Education from "@/components/sections/Education.astro"
+import Certificates from "@/components/sections/Certificates.astro"
+import Experience from "@/components/sections/Experience.astro"
+import Hero from "@/components/sections/Hero.astro"
+import Projects from "@/components/sections/Projects.astro"
+import Skills from "@/components/sections/Skills.astro"
+import KeyboardManager from "@/components/KeyboardManager.astro"
+
+import { basics } from "@cv"
+const { name, label } = basics
+
+---
+
+<Layout title={`Portfolio de ${name} - ${label}`}>
+  <header>
+    <p style="text-align: center;">Este sitio web ha sido visitado por <span id="visitsCounter"></span> personas.</p>
+  </header>
+  <main>
+    <Hero />
+    <About />
+    <Experience />
+    <Education />
+    <Certificates />
+    <Projects />
+    <Skills />
+  </main>
+
+  <KeyboardManager />
+
+</Layout>
+
+<script>
+  // Endpoint de la API Gateway para incrementar el contador de visitas
+  const apiUrl = "https://q9g3rlnxdi.execute-api.us-east-1.amazonaws.com/prod/counter";
+
+  // Función para actualizar el contador de visitas
+  function updateVisitsCounter() {
+    // Realizar una solicitud GET para obtener el número total de visitas
+    fetch(apiUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error al obtener el contador de visitas');
+        }
+        return response.text(); // Convertir la respuesta a texto en lugar de JSON
+      })
+      .then(data => {
+        // Mostrar el número total de visitas en el elemento con el ID "visitsCounter"
+        const visitsCounter = document.getElementById("visitsCounter");
+        if (visitsCounter) {
+          visitsCounter.innerText = data;
+        }
+      })  
+      .catch(error => {
+        console.error("Error al obtener el contador de visitas:", error);
+      });
+  }
+
+  // Ejecutar la función updateVisitsCounter después de que el documento se haya cargado completamente
+  document.addEventListener("DOMContentLoaded", updateVisitsCounter);
+</script>
+
+<style>
+  main {
+    padding: 4rem;
+    margin: auto;
+    width: 100%;
+  }
+
+  @media (width <= 700px) {
+    main {
+      padding: 2rem;
+    }
+  }
+</style>
