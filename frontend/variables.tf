@@ -53,8 +53,8 @@ variable "objects" {
       path         = "website/_astro/index.2uJtHFFC.css"
       content_type = "text/css"
     }
-    "hoisted.wPmeTjZf.js" = {
-      path         = "website/_astro/hoisted.wPmeTjZf.js"
+    "hoisted.AIlr0rQB.js" = {
+      path         = "website/_astro/hoisted.AIlr0rQB.js"
       content_type = "application/javascript"
     }
     "favicon.svg" = {

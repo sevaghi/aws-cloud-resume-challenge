@@ -68,7 +68,7 @@ resource "aws_s3_object" "my_objects" {
   for_each = var.objects
 
   bucket       = aws_s3_bucket.s3_bucket.id
-  key          = each.key == "index.2uJtHFFC.css" || each.key == "hoisted.wPmeTjZf.js" ? "_astro/${each.key}" : each.key
+  key          = each.key == "index.2uJtHFFC.css" || each.key == "hoisted.AIlr0rQB.js" ? "_astro/${each.key}" : each.key
   source       = "${path.module}/${each.value.path}"
   content_type = each.value.content_type
 }
