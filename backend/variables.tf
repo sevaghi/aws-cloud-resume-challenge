@@ -1,5 +1,5 @@
 variable "table_name" {
-    default = "portfolio-web-counter-tf"
+    default = "portfolio-web-counter"
     description = "dynamodb table name"
 }
 
@@ -9,5 +9,5 @@ variable "hash_key" {
 }
 
 variable "api_name" {
-  default = "portfolio-web-api-tf"
+  default = "portfolio-web-api"
 }

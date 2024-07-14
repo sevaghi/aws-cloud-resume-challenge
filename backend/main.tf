@@ -86,18 +86,10 @@ resource "aws_iam_role_policy_attachment" "dynamodb_access" {
   role       = aws_iam_role.lambda_role.name
 }
 
-resource "aws_lambda_function" "add_visits" {
-  filename      = "portfolio-web-add-visits.py.zip"
-  function_name = "portfolio-web-add-visits"
-  handler       = "add_visits.lambda_handler"
-  role          = aws_iam_role.lambda_role.arn
-  runtime       = "python3.12"
-}
-
-resource "aws_lambda_function" "get_visits" {
-  filename      = "portfolio-web-get-visits.py.zip"
-  function_name = "portfolio-web-get-visits"
-  handler       = "get_visits.lambda_handler"
+resource "aws_lambda_function" "lambda_counter" {
+  filename      = "lambda_counter.zip"
+  function_name = "portfolio-web-counter"
+  handler       = "lambda_counter.lambda_handler"
   role          = aws_iam_role.lambda_role.arn
   runtime       = "python3.12"
 }
@@ -105,16 +97,7 @@ resource "aws_lambda_function" "get_visits" {
 resource "aws_lambda_permission" "add_lambda_permission" {
   statement_id  = "AllowMyDemoAPIInvoke"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.add_visits.function_name
-  principal     = "apigateway.amazonaws.com"
-
-  source_arn = "${aws_api_gateway_rest_api.rest_api.execution_arn}/*"
-}
-
-resource "aws_lambda_permission" "get_lambda_permission" {
-  statement_id  = "AllowMyDemoAPIInvoke"
-  action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.get_visits.function_name
+  function_name = aws_lambda_function.lambda_counter.function_name
   principal     = "apigateway.amazonaws.com"
 
   source_arn = "${aws_api_gateway_rest_api.rest_api.execution_arn}/*"
@@ -199,43 +182,16 @@ resource "aws_api_gateway_method" "GET" {
 resource "aws_api_gateway_integration" "GET" {
   rest_api_id             = aws_api_gateway_rest_api.rest_api.id
   resource_id             = aws_api_gateway_resource.counter.id
-  http_method             = "GET"
+  http_method             = aws_api_gateway_method.GET.http_method
   type                    = "AWS_PROXY"
   integration_http_method = "POST"
-  uri                     = aws_lambda_function.get_visits.invoke_arn
+  uri                     = aws_lambda_function.lambda_counter.invoke_arn
 }
 
 resource "aws_api_gateway_method_response" "get_200" {
   rest_api_id = aws_api_gateway_rest_api.rest_api.id
   resource_id = aws_api_gateway_resource.counter.id
   http_method = aws_api_gateway_method.GET.http_method
-  status_code = "200"
-
-  response_parameters = {
-    "method.response.header.Access-Control-Allow-Origin" = true
-  }
-}
-
-resource "aws_api_gateway_method" "POST" {
-  rest_api_id   = aws_api_gateway_rest_api.rest_api.id
-  resource_id   = aws_api_gateway_resource.counter.id
-  http_method   = "POST"
-  authorization = "NONE"
-}
-
-resource "aws_api_gateway_integration" "POST" {
-  rest_api_id             = aws_api_gateway_rest_api.rest_api.id
-  resource_id             = aws_api_gateway_resource.counter.id
-  http_method             = "POST"
-  type                    = "AWS_PROXY"
-  integration_http_method = "POST"
-  uri                     = aws_lambda_function.add_visits.invoke_arn
-}
-
-resource "aws_api_gateway_method_response" "post_200" {
-  rest_api_id = aws_api_gateway_rest_api.rest_api.id
-  resource_id = aws_api_gateway_resource.counter.id
-  http_method = aws_api_gateway_method.POST.http_method
   status_code = "200"
 
   response_parameters = {
@@ -253,10 +209,8 @@ resource "aws_api_gateway_deployment" "deployment" {
     redeployment = sha1(jsonencode([
       aws_api_gateway_resource.counter.id,
       aws_api_gateway_method.GET.id,
-      aws_api_gateway_method.POST.id,
       aws_api_gateway_method.OPTIONS.id,
       aws_api_gateway_integration.GET.id,
-      aws_api_gateway_integration.POST.id,
       aws_api_gateway_integration.OPTIONS.id,
   ]))}
 
