@@ -9,7 +9,7 @@
 
 **Official Website**: [The CLoud Resume Challenge](https://cloudresumechallenge.dev)
 
-**My Own Resume**: [sevaghi.web.portfolio](https://sevaghiga.com)
+**My Own Resume**: [Sevaghi Web Portfolio](https://sevaghiga.com)
 
 ## Architecture
 
