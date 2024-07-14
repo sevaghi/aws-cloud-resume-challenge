@@ -2,11 +2,11 @@
   "basics": {
     "name": "Sergi Vaghi García",
     "label": "Consultor de Ciberseguridad especializado en Cloud Security",
-    "image": "https://sevaghi-web-portfolio.s3.eu-west-1.amazonaws.com/images/IMG_4338.jpeg",
+    "image": "",
     "email": "sevaghiga@gmail.com",
     "phone": "+34 605101583",
     "url": "https://sevaghiga.com",
-    "summary": "Máster en Ciberseguridad y Privacidad con experiencia como Consultor de Ciberseguridad para la gestión del riesgo TI, la privacidad y la continuidad de negocio. Actualmente desarrollando habilidades y ampliando conocimientos en la Computación en la Nube, con especialización en AWS.",
+    "summary": "Máster en Ciberseguridad y Privacidad con experiencia como Consultor de Ciberseguridad para la gestión del riesgo TI, la privacidad y la continuidad de negocio. Actualmente desarrollando habilidades y ampliando conocimientos en el diseño, arquitectura, despliegue, administración y securización de infraestructura en la nube, con especialización en AWS.",
     "location": {
       "address": "",
       "postalCode": "",
@@ -124,91 +124,91 @@
   "skills": [
     {
       "name": "AWS",
-      "level": "Master",
+      "level": "Avanzado",
       "keywords": [
-        "Desarrollo Web", "Frontend"
-      ]
-    },
-    {
-      "name": "Docker",
-      "level": "Master",
-      "keywords": [
-        "Desarrollo Web", "Frontend", "Diseño Responsive"
-      ]
-    },
-    {
-      "name": "Kubernetes",
-      "level": "Master",
-      "keywords": [
-        "Desarrollo Web", "Frontend", "Diseño Responsive"
+        "Computación en la nube", "Seguridad", "Arquitectura"
       ]
     },
     {
       "name": "Terraform",
-      "level": "Master",
+      "level": "Medio",
       "keywords": [
-        "Desarrollo Web", "Frontend", "Diseño Responsive"
+        "IaC", "AWS", "HCL"
+      ]
+    },
+    {
+      "name": "Docker",
+      "level": "Inicial",
+      "keywords": [
+        "Contenedores", "DevOps", "Despliegue"
+      ]
+    },
+    {
+      "name": "Kubernetes",
+      "level": "Inicial",
+      "keywords": [
+        "Orquestación", "Contenedores", "Infraestructura"
       ]
     },
     {
       "name": "Python",
-      "level": "Master",
+      "level": "Inicial",
       "keywords": [
-        "Desarrollo Web", "Frontend", "Backend", "Fullstack"
+        "Scripting", "Automatización", "Lambda"
       ]
     },
     {
       "name": "Bash",
-      "level": "Avanzado",
+      "level": "Inicial",
       "keywords": [
-        "Desarrollo Web", "Frontend", "CSS Framework", "Diseño Responsive"
+        "Scripting", "Consola Linux", "Automatización"
       ]
     },
     {
       "name": "JSON",
-      "level": "Avanzado",
+      "level": "Medio",
       "keywords": [
         "Desarrollo Web", "Frontend", "Backend", "JavaScript Superset"
       ]
     },
     {
       "name": "Networking",
-      "level": "Avanzado",
+      "level": "Medio",
       "keywords": [
-        "Desarrollo Web", "Backend", "JavaScript", "Servidor"
+        "Redes", "Direccionamiento", ""
       ]
     },
     {
       "name": "DNS",
-      "level": "Avanzado",
+      "level": "Medio",
       "keywords": [
-        "Bases de Datos", "SQL", "Almacenamiento de Datos", "Backend"
+        "Redes", "Wolrd Wide Web", "Tráfico"
       ]
     },
     {
       "name": "Linux",
-      "level": "Master",
+      "level": "Medio",
       "keywords": [
-        "Desarrollo Web", "Frontend", "Diseño Responsive"
+        "Sistema Operativo", "Administración", "Bastionado"
       ]
     },
     {
       "name": "MySQL",
-      "level": "Avanzado",
+      "level": "Inicial",
       "keywords": [
         "Bases de Datos", "SQL", "Almacenamiento de Datos", "Backend"
       ]
     },
     {
       "name": "Git",
-      "level": "Avanzado",
+      "level": "Inicial",
       "keywords": [
         "Control de Versiones", "Colaboración", "Código Fuente"
       ]
     },
     {
       "name": "GitHub",
-      "level": "Avanzado",
+      "level": "Inicial",
       "keywords": [
         "Control de Versiones", "Colaboración", "Código Fuente", "Git"
       ]
@@ -239,7 +239,7 @@
     {
       "name": "Seguridad en Raspberry Pi",
       "isActive": true,
-      "description": "Guía completa de bastionado de Raspberry Pi para su uso en entornos empresariales con ejemplo concreto de securización de servidor web (Linux, Nginx, MySQL y PHP)",
+      "description": "Guía completa de bastionado de Raspberry Pi para su uso en entornos empresariales con ejemplo concreto de securización de servidor web (Linux, Nginx, MySQL y PHP).",
       "highlights": [
         "Hardening",
         "Web Server",
@@ -247,6 +247,25 @@
         "Raspberry Pi"
       ],
       "url": "https://openaccess.uoc.edu/bitstream/10609/148131/1/sevaghiTFM0623memoria.pdf",
+      "github": ""
+    },
+    {
+      "name": "Cloud Resume Challenge",
+      "isActive": true,
+      "description": "Portfolio web personal desplegado de principio a fin (frontend y backend) en la nube de AWS y mediante IaC con Terraform.",
+      "highlights": [
+        "S3",
+        "Certificate Manager",
+        "Route 53",
+        "CloudFront",
+        "API Gateway",
+        "Lambda",
+        "DynamoDB",
+        "CloudWatch",
+        "Terraform",
+        "CI/CD"
+      ],
+      "url": "https://github.com/sevaghi/aws-cloud-resume-challenge",
       "github": ""
     }
   ]

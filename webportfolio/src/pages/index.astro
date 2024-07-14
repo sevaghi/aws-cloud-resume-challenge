@@ -34,23 +34,31 @@ const { name, label } = basics
 
 <script>
   // Endpoint de la API Gateway para incrementar el contador de visitas
-  const apiUrl = "https://q9g3rlnxdi.execute-api.us-east-1.amazonaws.com/prod/counter";
+  const apiUrl = "https://ycmuwp2zh5.execute-api.eu-west-1.amazonaws.com/prod/counter";
 
   // Función para actualizar el contador de visitas
   function updateVisitsCounter() {
-    // Realizar una solicitud GET para obtener el número total de visitas
+    // Solicitud GET para incrementar y obtener el número total de visitas
     fetch(apiUrl)
       .then(response => {
         if (!response.ok) {
           throw new Error('Error al obtener el contador de visitas');
         }
-        return response.text(); // Convertir la respuesta a texto en lugar de JSON
+        return response.text(); // Convertir la respuesta a texto
       })
       .then(data => {
-        // Mostrar el número total de visitas en el elemento con el ID "visitsCounter"
-        const visitsCounter = document.getElementById("visitsCounter");
-        if (visitsCounter) {
-          visitsCounter.innerText = data;
+        // Regex para extraer el valor del campo "record_count"
+        const match = data.match(/"record_count"\s*:\s*"(\d+)"/);
+        if (match && match[1]) {
+          const recordCount = match[1];
+
+          // Mostrar el número total de visitas en el elemento con el ID "visitsCounter"
+          const visitsCounter = document.getElementById("visitsCounter");
+          if (visitsCounter) {
+            visitsCounter.innerText = recordCount;
+          }
+        } else {
+          throw new Error('No se pudo encontrar el campo record_count en la respuesta');
         }
       })  
       .catch(error => {
@@ -61,6 +69,8 @@ const { name, label } = basics
   // Ejecutar la función updateVisitsCounter después de que el documento se haya cargado completamente
   document.addEventListener("DOMContentLoaded", updateVisitsCounter);
 </script>
+
+
 
 <style>
   main {
