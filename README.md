@@ -13,4 +13,4 @@
 
 ## Architecture
 
-![sevaghi-crc-architecture](/Users/sevaghi/aws-diagrams/aws-crc-diagram.png)
+![sevaghi-crc-architecture](https://github.com/sevaghi/aws-diagrams/blob/69efb19d59d0e8f07337456b6340e214bebdb8b7/aws-crc-diagram.png)
