@@ -13,7 +13,7 @@
 
 ## Architecture
 
-![sevaghi-crc-architecture](https://github.com/sevaghi/aws-diagrams/blob/69efb19d59d0e8f07337456b6340e214bebdb8b7/aws-crc-diagram.png)
+![sevaghi-crc-architecture](https://github.com/sevaghi/aws-diagrams/blob/34dffbe05d1e728e302563a9fd81e8a4935e395d/aws-crc-diagram.png)
 
 ## AWS Services Used
 
