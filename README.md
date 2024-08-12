@@ -4,6 +4,10 @@
 
 - [The Challenge](#the-challenge)
 - [Architecture](#architecture)
+- [AWS Services Used](#aws-services-used)
+- [Frontend](#frontend)
+- [Backend](#backend)
+- [IaC whith Terraform](#iac-with-terraform)
 
 ## The Challenge
 
