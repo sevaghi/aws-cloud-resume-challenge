@@ -21,6 +21,7 @@ provider "aws" {
 }
 
 #--------S3 Bucket--------#
+## Test Text##
 resource "aws_s3_bucket" "s3_bucket" {
   bucket = var.bucket_name
 }
