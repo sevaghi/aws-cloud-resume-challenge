@@ -3,7 +3,7 @@ name: Frontend CI/CD
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - 'frontend/**'
 

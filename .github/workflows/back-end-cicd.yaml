@@ -3,7 +3,7 @@ name: Backend CI/CD
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - 'backend/**'
 
