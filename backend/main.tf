@@ -17,7 +17,7 @@ provider "aws" {
 }
 
 #--------DynamoDB--------#
-
+## Test Text ##
 resource "aws_dynamodb_table" "dynamodb_table" {
   name = var.table_name
   billing_mode = "PAY_PER_REQUEST"
