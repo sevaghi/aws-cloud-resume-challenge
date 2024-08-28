@@ -21,7 +21,6 @@ provider "aws" {
 }
 
 #--------S3 Bucket--------#
-## Test Text ##
 resource "aws_s3_bucket" "s3_bucket" {
   bucket = var.bucket_name
 }
@@ -135,7 +134,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     viewer_protocol_policy = "redirect-to-https"
   }
 
-  price_class = "PriceClass_All"
+  price_class = "PriceClass_100"
 
   restrictions {
     geo_restriction {
