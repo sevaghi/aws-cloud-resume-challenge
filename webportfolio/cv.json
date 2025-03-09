@@ -1,7 +1,7 @@
 {
   "basics": {
     "name": "Sergi Vaghi García",
-    "label": "Consultor de Ciberseguridad especializado en Cloud Security",
+    "label": "Cloud and Cyber Security Expert | AWS Certified Solutions Architect Cerrtified | ISO 22301 Provisional Auditor",
     "image": "",
     "email": "sevaghiga@gmail.com",
     "phone": "+34 605101583",
@@ -30,10 +30,21 @@
   "work": [
     {
       "name": "Fujitsu Technology Solutions S.A.",
+      "position": "Information Security Manager",
+      "url": "https://global.fujitsu/es-es",
+      "startDate": "2024-07-15",
+      "endDate": null,
+      "summary": "",
+      "highlights": [
+        "Apoyo al CISO"
+      ]      
+    },
+    {
+      "name": "Fujitsu Technology Solutions S.A.",
       "position": "Cybersecurity Consultant",
       "url": "https://global.fujitsu/es-es",
       "startDate": "2023-07-01",
-      "endDate": null,
+      "endDate": "2024-12-31",
       "summary": "Involucrado en distintos proyectos y servicios de Gobierno, Riesgo y Cumplimiento para el Sector Público y Privado, acompañando en su mejora de la seguridad de la información (ENS e ISO 27k), la privacidad (RGPD y LOPDGDD), y la continuidad de negocio (ISO 22301).",
       "highlights": [
         "Apoyo al CISO"
@@ -95,11 +106,24 @@
     "awarder": "Company",
     "summary": "There is no spoon."
   }],
-  "certificates": [{
+  "certificates": [
+  {
+    "name": "AWS Certified Solutions Architect - Associate",
+    "date": "2025-03-07",
+    "issuer": "Amazon Web Services Training and Certification",
+    "url": "https://www.credly.com/badges/8904d096-f5d0-4a02-a618-59ba921afde2"
+  },
+  {
     "name": "AWS Certified Cloud Practitioner",
     "date": "2024-03-01",
     "issuer": "Amazon Web Services Training and Certification",
     "url": "https://www.credly.com/badges/897fe99b-aadf-478f-a40e-cb00cd280197/public_url"
+  },
+  {
+    "name": "ISO 22301 Provisional Auditor",
+    "date": "2024-11-18",
+    "issuer": "PECB",
+    "url": "https://www.credly.com/badges/fe2db741-b462-417a-9ab4-908e46444d93"
   },
   {
     "name": "Director de Seguridad",
