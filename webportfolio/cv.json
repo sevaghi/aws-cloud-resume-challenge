@@ -1,7 +1,7 @@
 {
   "basics": {
     "name": "Sergi Vaghi García",
-    "label": "Cloud and Cyber Security Expert | AWS Certified Solutions Architect Cerrtified | ISO 22301 Provisional Auditor",
+    "label": "Cloud and Cyber Security Expert | AWS Certified Solutions Architect Cerrtified | CCSK v5 | ISO 22301 Provisional Auditor",
     "image": "",
     "email": "sevaghiga@gmail.com",
     "phone": "+34 605101583",
@@ -107,6 +107,12 @@
     "summary": "There is no spoon."
   }],
   "certificates": [
+  {
+    "name": "CCSK v5 - Certificate of Cloud Security Knowledge",
+    "date": "2025-11-15",
+    "issuer": "Cloud Security Alliance",
+    "url": "https://www.credly.com/badges/0de10316-99a5-44b1-b622-ead663bd4118"
+  },
   {
     "name": "AWS Certified Solutions Architect - Associate",
     "date": "2025-03-07",
