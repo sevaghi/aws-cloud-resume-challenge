@@ -1,68 +1,64 @@
 {
   "basics": {
-    "name": "Miguel Ángel Durán",
-    "label": "Full-Stack developer with more than 15 years of experience & development content creator",
-    "image": "/me.webp",
-    "email": "miduga@gmail.com",
-    "phone": "+34 688888888",
-    "url": "https://midu.dev",
-    "summary": "+15 years of experience as a web developer. Currently I am a content creator and development dommunicator. I live in Barcelona, Spain. I have worked in different environments: from accelerating the development of start-ups to leading teams in multinational companies.",
+    "name": "Sergi Vaghi García",
+    "label": "Cloud and Cyber Security Expert | AWS Certified Solutions Architect Cerrtified | ISO 22301 Provisional Auditor",
+    "image": "",
+    "email": "sevaghiga@gmail.com",
+    "phone": "+34 605101583",
+    "url": "https://sevaghiga.com",
+    "summary": "Máster en Ciberseguridad y Privacidad con experiencia como Consultor de Ciberseguridad para la gestión del riesgo TI, la privacidad y la continuidad de negocio. Actualmente desarrollando habilidades y ampliando conocimientos en el diseño, arquitectura, despliegue, administración y securización de infraestructura en la nube, con especialización en AWS.",
     "location": {
       "address": "",
-      "postalCode": "08820",
-      "city": "el Prat de Llobregat",
+      "postalCode": "",
+      "city": "Barcelona",
       "countryCode": "ES",
-      "region": "Spain"
+      "region": "España"
     },
     "profiles": [
       {
         "network": "LinkedIn",
-        "username": "midudev",
-        "url": "https://linkedin.com/in/midudev"
-      },
-      {
-        "network": "X",
-        "username": "midudev",
-        "url": "https://x.com/midudev"
+        "username": "sevaghiga",
+        "url": "https://www.linkedin.com/in/sevaghiga/"
       },
       {
         "network": "GitHub",
-        "username": "midudev",
-        "url": "https://github.com/midudev"
+        "username": "sevaghi",
+        "url": "https://github.com/sevaghi"
       }
     ]
   },
   "work": [
     {
-      "name": "midudev",
-      "position": "Web programming communicator",
-      "url": "https://twitch.tv/midudev",
-      "startDate": "2021-01-01",
+      "name": "Fujitsu Technology Solutions S.A.",
+      "position": "Information Security Manager",
+      "url": "https://global.fujitsu/es-es",
+      "startDate": "2024-07-15",
       "endDate": null,
-      "summary": "Most watched development streamer in Spanish on Twitch. +1 million followers across all my social networks. Recognised by Google, Microsoft and GitHub for my impact on the development community.",
+      "summary": "",
       "highlights": [
-        "Started the company"
+        "Apoyo al CISO"
+      ]      
+    },
+    {
+      "name": "Fujitsu Technology Solutions S.A.",
+      "position": "Cybersecurity Consultant",
+      "url": "https://global.fujitsu/es-es",
+      "startDate": "2023-07-01",
+      "endDate": "2024-12-31",
+      "summary": "Involucrado en distintos proyectos y servicios de Gobierno, Riesgo y Cumplimiento para el Sector Público y Privado, acompañando en su mejora de la seguridad de la información (ENS e ISO 27k), la privacidad (RGPD y LOPDGDD), y la continuidad de negocio (ISO 22301).",
+      "highlights": [
+        "Apoyo al CISO"
       ]
     },
     {
-      "name": "Adevinta",
-      "position": "Lead Frontend Architect",
-      "url": "https://twitch.tv/midudev",
-      "startDate": "2016-06-01",
-      "endDate": "2022-09-01",
-      "summary": "I led a technical convergence between different products and migrated from a monolithic architecture to a more flexible and optimised one. I fostered best practices and performance culture improvements, as well as rapid delivery of value to users.",
+      "name": "onBRANDING",
+      "position": "Departamento OSINT",
+      "url": "https://onbranding.es",
+      "startDate": "2021-12-01",
+      "endDate": "2022-02-01",
+      "summary": "Formé parte del departamento de Inteligencia de fuentes abiertas (OSINT) dando apoyo en la búsqueda de información de fuentes abiertas, colaborando en la elaboración y redacción de informes de inteligencia, monitorizando redes sociales y certificando evidencias digitales.",
       "highlights": [
-        "Started the company"
-      ]
-    },
-    {
-      "name": "Hubii",
-      "position": "Senior FrontEnd Developer",
-      "startDate": "2011-03-01",
-      "endDate": "2016-05-01",
-      "summary": "I developed a geolocated news platform and an API to consume the information. Scaled services to support the load of over hundreds of thousands of requests per day. Cut delivery times and deployments to production by half. Collaborated with Mozilla and Telefónica to develop the first FirefoxOS TV app.",
-      "highlights": [
-        "Started the company"
+        ""
       ]
     }
   ],
@@ -77,30 +73,71 @@
       "Awarded 'Volunteer of the Month'"
     ]
   }],
-  "education": [{
-    "institution": "Universitat Oberta de Catalunya",
-    "url": "https://www.uoc.edu/portal/es/index.html",
-    "area": "Software Engineer",
-    "studyType": "Bachelor",
-    "startDate": "2003-01-01",
-    "endDate": "2009-01-01",
-    "score": "4.0",
-    "courses": [
-      "DB1101 - Basic SQL"
-    ]
-  }],
+  "education": [
+    {
+      "institution": "Universitat Oberta de Catalunya",
+      "url": "https://www.uoc.edu/portal/es/index.html",
+      "area": "Máster Universitario en Ciberseguridad y Privacidad",
+      "studyType": "Master Degree",
+      "startDate": "2022-09-01",
+      "endDate": "2023-06-01",
+      "score": "9.3",
+      "courses": [
+        ""
+      ]
+    },
+    {
+      "institution": "Universitat de Barcelona",
+      "url": "https://web.ub.edu/inici",
+      "area": "Grado en Seguridad Corporativa",
+      "studyType": "Bachelor",
+      "startDate": "2018-09-01",
+      "endDate": "2022-06-01",
+      "score": "8.5",
+      "courses": [
+        ""
+      ]
+    }
+
+  ],
   "awards": [{
     "title": "Award",
     "date": "2014-11-01",
     "awarder": "Company",
     "summary": "There is no spoon."
   }],
-  "certificates": [{
-    "name": "Certificate",
-    "date": "2021-11-07",
-    "issuer": "Company",
-    "url": "https://certificate.com"
-  }],
+  "certificates": [
+  {
+    "name": "AWS Certified Solutions Architect - Associate",
+    "date": "2025-03-07",
+    "issuer": "Amazon Web Services Training and Certification",
+    "url": "https://www.credly.com/badges/8904d096-f5d0-4a02-a618-59ba921afde2"
+  },
+  {
+    "name": "AWS Certified Cloud Practitioner",
+    "date": "2024-03-01",
+    "issuer": "Amazon Web Services Training and Certification",
+    "url": "https://www.credly.com/badges/897fe99b-aadf-478f-a40e-cb00cd280197/public_url"
+  },
+  {
+    "name": "ISO 22301 Provisional Auditor",
+    "date": "2024-11-18",
+    "issuer": "PECB",
+    "url": "https://www.credly.com/badges/fe2db741-b462-417a-9ab4-908e46444d93"
+  },
+  {
+    "name": "Director de Seguridad",
+    "date": "2022-12-01",
+    "issuer": "Ministerio del Interior",
+    "url": "https://www.interior.gob.es/opencms/es/servicios-al-ciudadano/tramites-y-gestiones/personal-de-seguridad-privada/directores-de-seguridad/"
+  },
+  {
+    "name": "Jefe de Seguridad",
+    "date": "2022-12-01",
+    "issuer": "Ministerio del Interior",
+    "url": "https://www.interior.gob.es/opencms/es/servicios-al-ciudadano/tramites-y-gestiones/personal-de-seguridad-privada/jefes-de-seguridad/"
+  }
+  ],
   "publications": [{
     "name": "Publication",
     "publisher": "Company",
@@ -110,80 +147,94 @@
   }],
   "skills": [
     {
-      "name": "HTML",
-      "level": "Master",
+      "name": "AWS",
+      "level": "Avanzado",
       "keywords": [
-        "Web development", "Frontend"
+        "Computación en la nube", "Seguridad", "Arquitectura"
       ]
     },
     {
-      "name": "CSS",
-      "level": "Master",
+      "name": "Terraform",
+      "level": "Medio",
       "keywords": [
-        "Web development", "Frontend", "Diseño Responsive"
+        "IaC", "AWS", "HCL"
       ]
     },
     {
-      "name": "JavaScript",
-      "level": "Master",
+      "name": "Docker",
+      "level": "Inicial",
       "keywords": [
-        "Web development", "Frontend", "Backend", "Fullstack"
+        "Contenedores", "DevOps", "Despliegue"
       ]
     },
     {
-      "name": "Tailwind",
-      "level": "Advanced",
+      "name": "Kubernetes",
+      "level": "Inicial",
       "keywords": [
-        "Web development", "Frontend", "CSS Framework", "Diseño Responsive"
+        "Orquestación", "Contenedores", "Infraestructura"
       ]
     },
     {
-      "name": "TypeScript",
-      "level": "Advanced",
+      "name": "Python",
+      "level": "Inicial",
       "keywords": [
-        "Web development", "Frontend", "Backend", "JavaScript Superset"
+        "Scripting", "Automatización", "Lambda"
       ]
     },
     {
-      "name": "Node",
-      "level": "Advanced",
+      "name": "Bash",
+      "level": "Inicial",
       "keywords": [
-        "Web development", "Backend", "JavaScript", "Servidor"
+        "Scripting", "Consola Linux", "Automatización"
+      ]
+    },
+    {
+      "name": "JSON",
+      "level": "Medio",
+      "keywords": [
+        "Desarrollo Web", "Frontend", "Backend", "JavaScript Superset"
+      ]
+    },
+    {
+      "name": "Networking",
+      "level": "Medio",
+      "keywords": [
+        "Redes", "Direccionamiento", ""
+      ]
+    },
+    {
+      "name": "DNS",
+      "level": "Medio",
+      "keywords": [
+        "Redes", "Wolrd Wide Web", "Tráfico"
+      ]
+    },
+    {
+      "name": "Linux",
+      "level": "Medio",
+      "keywords": [
+        "Sistema Operativo", "Administración", "Bastionado"
       ]
     },
     {
       "name": "MySQL",
-      "level": "Advanced",
+      "level": "Inicial",
       "keywords": [
-        "Bases de Datos", "SQL", "Database", "Backend"
+        "Bases de Datos", "SQL", "Almacenamiento de Datos", "Backend"
       ]
     },
     {
       "name": "Git",
-      "level": "Advanced",
+      "level": "Inicial",
       "keywords": [
-        "Version control", "Colaboración", "Source code"
+        "Control de Versiones", "Colaboración", "Código Fuente"
       ]
     },
     {
       "name": "GitHub",
-      "level": "Advanced",
+      "level": "Inicial",
       "keywords": [
-        "Version control", "Collaboration", "Source code", "Git"
-      ]
-    },
-    {
-      "name": "Next.js",
-      "level": "Advanced",
-      "keywords": [
-        "Web development", "Frontend", "React Framework", "SSR", "Static Generation"
-      ]
-    },
-    {
-      "name": "React",
-      "level": "Advanced",
-      "keywords": [
-        "Web development", "Frontend", "JavaScript Library", "UI"
+        "Control de Versiones", "Colaboración", "Código Fuente", "Git"
       ]
     }
   ],
@@ -210,66 +261,37 @@
   }],
   "projects": [
     {
-      "name": "mars.codes",
+      "name": "Seguridad en Raspberry Pi",
       "isActive": true,
-      "description": "Interactive story with programming challenges to travel to Mars",
+      "description": "Guía completa de bastionado de Raspberry Pi para su uso en entornos empresariales con ejemplo concreto de securización de servidor web (Linux, Nginx, MySQL y PHP).",
       "highlights": [
-        "Choose your own adventure",
-        "In progress"
+        "Hardening",
+        "Web Server",
+        "LEMP Server",
+        "Raspberry Pi"
       ],
-      "url": "https://mars.codes"
+      "url": "https://openaccess.uoc.edu/bitstream/10609/148131/1/sevaghiTFM0623memoria.pdf",
+      "github": ""
     },
     {
-      "name": "AdventJS",
+      "name": "Cloud Resume Challenge",
       "isActive": true,
-      "description": "JavaScript programming challenges for every day of December until Christmas",
+      "description": "Portfolio web personal desplegado de principio a fin (frontend y backend) en la nube de AWS y mediante IaC con Terraform.",
       "highlights": [
-        "+1 million visits",
-        "Multilanguage",
-        "JavaScript & TypeScript"
+        "S3",
+        "Certificate Manager",
+        "Route 53",
+        "CloudFront",
+        "API Gateway",
+        "Lambda",
+        "DynamoDB",
+        "CloudWatch",
+        "Terraform",
+        "CI/CD"
       ],
-      "url": "https://advent.js/dev"
-    },
-    {
-      "name": "Codember",
-      "isActive": true,
-      "description": "Interactive programming game with challenges and secrets",
-      "highlights": [
-        "+2000 active users",
-        "Challenges for any language"
-      ],
-      "url": "https://codember.dev"
-    },
-    {
-      "name": "codi.link",
-      "isActive": true,
-      "description": "Playground of HTML, CSS and JavaScript code for sharing",
-      "highlights": [
-        "100k monthly visit",
-        "Developed by the community"
-      ],
-      "url": "https://codi.link",
-      "github": "https://github.com/midudev/codi.link"
-    },
-    {
-      "name": "Pruebas Técnicas",
-      "isActive": true,
-      "description": "List of technical tests of companies to practice programming",
-      "highlights": [
-        "100% free",
-        "+500 community solutions"
-      ],
-      "url": "https://pruebastecnicas.com",
-      "github": "https://github.com/midudev/pruebas-tecnicas"
-    },
-    {
-      "name": "miduConf",
-      "description": "Streaming programming conference for the Spanish-speaking community with top talks",
-      "highlights": [
-        "+15k tickets handed over",
-        "+50k live viewers"
-      ],
-      "url": "https://miduconf.com"
+      "url": "https://github.com/sevaghi/aws-cloud-resume-challenge",
+      "github": ""
     }
   ]
 }
+
