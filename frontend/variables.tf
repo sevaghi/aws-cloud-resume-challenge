@@ -38,28 +38,3 @@ variable "a_records" {
     }
   }
 }
-
-variable "objects" {
-  type = map(object({
-    path         = string
-    content_type = string
-  }))
-  default = {
-    "index.html" = {
-      path         = "website/index.html"
-      content_type = "text/html"
-    }
-    "index.2uJtHFFC.css" = {
-      path         = "website/_astro/index.2uJtHFFC.css"
-      content_type = "text/css"
-    }
-    "hoisted.AIlr0rQB.js" = {
-      path         = "website/_astro/hoisted.AIlr0rQB.js"
-      content_type = "application/javascript"
-    }
-    "favicon.svg" = {
-      path         = "website/favicon.svg"
-      content_type = "image/x-icon"
-    }
-  }
-}
