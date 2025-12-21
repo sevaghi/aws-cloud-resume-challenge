@@ -27,25 +27,18 @@ resource "aws_s3_bucket" "s3_bucket" {
 
 data "aws_iam_policy_document" "s3_bucket_policy" {
   statement {
-    sid     = "AllowCloudFrontServiceRead"
-    effect  = "Allow"
-    actions = ["s3:GetObject"]
-
+    sid       = "Allow CloudFront to read from S3 bucket"
+    actions   = ["s3:GetObject"]
     resources = ["${aws_s3_bucket.s3_bucket.arn}/*"]
 
     principals {
-      type        = "Service"
-      identifiers = ["cloudfront.amazonaws.com"]
-    }
-
-    condition {
-      test     = "StringEquals"
-      variable = "AWS:SourceArn"
-      values = [
-        aws_cloudfront_distribution.s3_distribution.arn
+      type = "AWS"
+      identifiers = [
+        aws_cloudfront_origin_access_identity.origin_access_identity.iam_arn,
       ]
     }
   }
+  version = "2012-10-17"
 }
 
 resource "aws_s3_bucket_policy" "aws_s3_bucket_policy" {
@@ -69,6 +62,15 @@ resource "aws_s3_bucket_versioning" "s3_bucket" {
   versioning_configuration {
     status = "Enabled"
   }
+}
+
+resource "aws_s3_object" "my_objects" {
+  for_each = var.objects
+
+  bucket       = aws_s3_bucket.s3_bucket.id
+  key          = each.key == "index.zAwek0xt.css" || each.key == "hoisted.8gsvdoL3.js" ? "_astro/${each.key}" : each.key
+  source       = "${path.module}/${each.value.path}"
+  content_type = each.value.content_type
 }
 
 #--------ACM Certificate & Route 53--------#
@@ -120,20 +122,8 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   aliases = var.cloudfront_aliases
 
-  ordered_cache_behavior {
-  path_pattern     = "/_astro/*"
-  target_origin_id = "S3-${aws_s3_bucket.s3_bucket.id}"
-
-  viewer_protocol_policy = "redirect-to-https"
-  allowed_methods        = ["GET", "HEAD"]
-  cached_methods         = ["GET", "HEAD"]
-
-  compress = true
-  cache_policy_id = aws_cloudfront_cache_policy.assets.id
-  }
-
   default_cache_behavior {
-    cache_policy_id            = aws_cloudfront_cache_policy.html.id # HTML Policy
+    cache_policy_id            = "658327ea-f89d-4fab-a63d-7e88639e58f6" # Caching Optimized
     origin_request_policy_id   = "88a5eaf4-2fd4-4709-b370-b4c650ea3fcf" # CORS-S3Origin
     response_headers_policy_id = "60669652-455b-4ae9-85a4-c4c02393f86c" # SimpleCORS
     allowed_methods            = ["GET", "HEAD", "OPTIONS"]
@@ -230,50 +220,6 @@ resource "aws_cloudfront_origin_request_policy" "policy" {
     query_string_behavior = "none"
     query_strings {
       items = []
-    }
-  }
-}
-
-resource "aws_cloudfront_cache_policy" "assets" {
-  name        = "sevaghiga-assets"
-  min_ttl     = 0
-  default_ttl = 31536000
-  max_ttl     = 31536000
-
-  parameters_in_cache_key_and_forwarded_to_origin {
-    cookies_config {
-      cookie_behavior = "none"
-    }
-
-    headers_config {
-      header_behavior = "none"
-    }
-
-    query_strings_config {
-      query_string_behavior = "none"
-    }
-
-    enable_accept_encoding_brotli = true
-    enable_accept_encoding_gzip   = true
-  }
-}
-resource "aws_cloudfront_cache_policy" "html" {
-  name        = "sevaghiga-html"
-  min_ttl     = 0
-  default_ttl = 0
-  max_ttl     = 60
-
-  parameters_in_cache_key_and_forwarded_to_origin {
-    cookies_config {
-      cookie_behavior = "none"
-    }
-
-    headers_config {
-      header_behavior = "none"
-    }
-
-    query_strings_config {
-      query_string_behavior = "none"
     }
   }
 }
