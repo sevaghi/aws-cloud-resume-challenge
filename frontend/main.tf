@@ -27,18 +27,25 @@ resource "aws_s3_bucket" "s3_bucket" {
 
 data "aws_iam_policy_document" "s3_bucket_policy" {
   statement {
-    sid       = "Allow CloudFront to read from S3 bucket"
-    actions   = ["s3:GetObject"]
+    sid     = "AllowCloudFrontServiceRead"
+    effect  = "Allow"
+    actions = ["s3:GetObject"]
+
     resources = ["${aws_s3_bucket.s3_bucket.arn}/*"]
 
     principals {
-      type = "AWS"
-      identifiers = [
-        aws_cloudfront_origin_access_identity.origin_access_identity.iam_arn,
+      type        = "Service"
+      identifiers = ["cloudfront.amazonaws.com"]
+    }
+
+    condition {
+      test     = "StringEquals"
+      variable = "AWS:SourceArn"
+      values = [
+        aws_cloudfront_distribution.s3_distribution.arn
       ]
     }
   }
-  version = "2012-10-17"
 }
 
 resource "aws_s3_bucket_policy" "aws_s3_bucket_policy" {
